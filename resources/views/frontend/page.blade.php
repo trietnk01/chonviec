@@ -1,6 +1,6 @@
 @extends("frontend.master")
 @section("content")
-@include("frontend.content-top")
+@include("frontend.content-top-searching")
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8">

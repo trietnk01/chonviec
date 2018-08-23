@@ -1,6 +1,6 @@
 @extends("frontend.master")
 @section("content")
-@include("frontend.content-top")
+@include("frontend.content-top-searching")
 <?php 
 $seo=getSeo();
 $source_sex=App\SexModel::orderBy('id','asc')->select('id','fullname')->get()->toArray();

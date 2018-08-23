@@ -1,6 +1,6 @@
 @extends("frontend.master")
 @section("content")
-@include("frontend.content-top")
+@include("frontend.content-top-searching")
 <h1 style="display: none;"><?php echo @$title; ?></h1>
 <h2 style="display: none;"><?php echo @$meta_description; ?></h2>				
 <div class="container">

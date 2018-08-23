@@ -1,6 +1,6 @@
 @extends("frontend.master")
 @section("content")
-@include("frontend.content-top")
+@include("frontend.content-top-searching")
 <?php 
 $setting= getSettingSystem();
 $width=$setting['product_width']['field_value'];

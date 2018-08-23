@@ -1,6 +1,6 @@
 @extends("frontend.master")
 @section("content")
-@include("frontend.content-top")
+@include("frontend.content-top-searching")
 <?php 
 $seo=getSeo();
 $linkChangeRecruitmentAppearedStatus	=	route('frontend.index.changeRecruitmentAppearedStatus');

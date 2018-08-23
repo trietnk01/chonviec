@@ -1,6 +1,6 @@
 @extends("frontend.master")
 @section("content")
-@include("frontend.content-top")
+@include("frontend.content-top-searching")
 <?php 
 $seo=getSeo();
 $linkChangeProfileSearchStatus	=	route('frontend.index.changeProfileSearchStatus');
@@ -11,9 +11,6 @@ $linkCreateProfileStepByStep=route('frontend.index.getProfileDetail',[@$id]);
 ?>
 <h1 style="display: none;"><?php echo $seo["title"]; ?></h1>
 <h2 style="display: none;"><?php echo $seo["meta_description"]; ?></h2>
-
-
-   
 <div class="container">
 	<div class="row">			
 		<div class="col-lg-9">

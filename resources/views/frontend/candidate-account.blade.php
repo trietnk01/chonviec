@@ -1,6 +1,6 @@
 @extends("frontend.master")
 @section("content")
-@include("frontend.content-top")
+@include("frontend.content-top-searching")
 <?php 
 $seo=getSeo();
 $arrUser=array();
@@ -9,17 +9,17 @@ if(Session::has($ssNameUser)){
       $arrUser=Session::get($ssNameUser);
 } 
 $picture                =   "";
-$strImage               =   "";
+$str_image               =   "";
 $setting = getSettingSystem();
 $product_width = $setting['product_width']['field_value'];
 $product_height = $setting['product_height']['field_value'];  
 if(count(@$data)>0){
     if(!empty(@$data["avatar"])){
         $picture        =   '<div class="box-logo"><div><center>&nbsp;<img src="'.asset("/upload/" . $product_width . "x" . $product_height . "-".@$data["avatar"]).'" style="width:100%" title="'.@$data['fullname'].'" alt="'.@$data['fullname'].'" />&nbsp;</center></div><div><a href="javascript:void(0);" onclick="deleteImage();"><img src="'.asset('public/adminsystem/images/delete-icon.png').'"/></a></div></div>';                        
-        $strImage       =   @$data["avatar"];
+        $str_image       =   @$data["avatar"];
     }        
 } 
-$inputPictureHidden     =   '<input type="hidden" name="image_hidden"  value="'.@$strImage.'" />';
+$inputPictureHidden     =   '<input type="hidden" name="image_hidden"  value="'.@$str_image.'" />';
 /* begin ngày sinh */
 $source_day=array();
 $source_month=array();

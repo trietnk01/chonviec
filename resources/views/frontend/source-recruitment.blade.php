@@ -18,7 +18,7 @@ if(!empty(@$meta_description)){
 	$seo_meta_description=@$seo["meta_description"];
 }
 ?>
-@include("frontend.content-top")
+@include("frontend.content-top-searching")
 <h1 style="display: none;"><?php echo @$seo_title; ?></h1>
 <h2 style="display: none;"><?php echo @$seo_meta_description; ?></h2>
 <div class="container">
