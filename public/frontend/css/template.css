@@ -265,7 +265,7 @@ figure:hover img{-webkit-transform:scale3d(1.2, 1.2, 1);transform:scale3d(1.2, 1
 }
 .dk-dn a{
     display: block;
-    padding: 20px 0px;
+    padding:25px 0px;
     font-size: 20px;
     font-weight: bold;    
     background: #ffffff;   
@@ -369,7 +369,7 @@ figure:hover img{-webkit-transform:scale3d(1.2, 1.2, 1);transform:scale3d(1.2, 1
     margin-right: 15px;
 }
 .mica-2{
-        display: flex;
+    display: flex;
     justify-content: center;
     margin-left: 5px;
     padding-right: 15px;
@@ -379,31 +379,31 @@ figure:hover img{-webkit-transform:scale3d(1.2, 1.2, 1);transform:scale3d(1.2, 1
     padding-left: 10px ;
     padding-top: 10px;   
     padding-bottom: 11px;     
-    background: #f5f5f5;
-    border: 1px solid #ccc;
+    background: #ffffff;     
     transition: all 0.5s ease-in-out;
-    -webkit-transition: all 0.5s ease-in-out;    
+    -webkit-transition: all 0.5s ease-in-out; 
+    box-shadow:1px 1px 1px 0px #0000001f;   
 }
 .dang-tin-mien-phi a:hover{
-    background: #337ab7;
-    border: 1px solid #1b588d;
+    background:#23c0e9;    
+    color: #ffffff;    
 }
 .dang-tin-mien-phi a .ths{
-  color: #337ab7;
-    font-weight: bold;
-    font-size:25px;
-    transition: all 0.5s ease-in-out;
-    -webkit-transition: all 0.5s ease-in-out;    
+  color: #23c0e9;
+  font-weight: bold;
+  font-size:25px;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;    
 }
 .dang-tin-mien-phi a .sloganthsmp{
     color: #333;
-font-size: 12px;
+    font-size: 12px;
     margin-top: 5px;
     transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;    
 }
 .dang-tin-mien-phi a i{
-    color: #337ab7;
+    color: #23c0e9;
     font-size: 74px;
     transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;    
