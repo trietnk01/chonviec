@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-4">
-			<div class="tao-ho-so">
+			<div class="tao-ho-so margin-top-15">
 				<a  href="<?php echo route('frontend.index.getFormProfile',['add',0]); ?>">
 					<div class="zidan">
 						<div >
@@ -16,7 +16,7 @@
 			</div>			
 		</div>
 		<div class="col-lg-4">
-			<div class="lam-dep-ho-so">
+			<div class="lam-dep-ho-so margin-top-15">
 				<a  href="javascript:void(0);">
 					<div class="zidan">
 						<div >
@@ -31,7 +31,7 @@
 			</div>			
 		</div>			
 		<div class="col-lg-4">
-			<div class="dang-tin-mien-phi">
+			<div class="dang-tin-mien-phi margin-top-15">
 				<a  href="<?php echo route('frontend.index.viewCandidateAccount'); ?>">
 					<div class="zidan">
 						<div >

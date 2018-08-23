@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-2">
-			<div class="dk-dn">
+			<div class="dk-dn margin-top-15">
 				<a  href="<?php echo route('frontend.index.loginFe'); ?>">
 					<div><center><i class="fas fa-sign-in-alt"></i></center></div>
 					<div><center>ĐĂNG NHẬP</center> </div>
@@ -9,7 +9,7 @@
 			</div>			
 		</div>
 		<div class="col-lg-2">
-			<div class="dk-dn">
+			<div class="dk-dn margin-top-15">
 				<a  href="<?php echo route('frontend.index.register'); ?>">
 					<div><center><i class="fas fa-user-plus"></i></center></div>
 					<div><center>ĐĂNG KÝ</center> </div>
@@ -17,7 +17,7 @@
 			</div>			
 		</div>		
 		<div class="col-lg-4">
-			<div class="tao-ho-so">
+			<div class="tao-ho-so margin-top-15">
 				<a  href="javascript:void(0);">
 					<div class="zidan">
 						<div >
@@ -32,7 +32,7 @@
 			</div>			
 		</div>
 		<div class="col-lg-4">
-			<div class="dang-tin-mien-phi">
+			<div class="dang-tin-mien-phi margin-top-15">
 				<a  href="javascript:void(0);">
 					<div class="zidan">
 						<div >
