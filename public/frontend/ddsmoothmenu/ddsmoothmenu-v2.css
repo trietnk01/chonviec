@@ -1,0 +1,32 @@
+.ddsmoothmenu > ul > li > a:link,.ddsmoothmenu > ul > li > a:visited{
+    background: transparent;
+    color: #ffffff;
+        padding: 10px 14px;
+    border-right: 0px;
+    font-weight: bold;
+}
+.ddsmoothmenu > ul > li > a:hover  {
+    background: #0c62ad !important;
+    color: #ffffff
+}
+.ddsmoothmenu ul li a.selected{
+    background: #0c62ad !important;  
+    color: #ffffff  
+}
+.ddsmoothmenu ul li a{
+    text-transform: uppercase;
+}
+.ddsmoothmenu ul li ul li a{
+    background: url('../images/bg.png');
+    padding: 10px 10px;
+}
+.ddsmoothmenu ul li ul li a{
+  border-bottom: 1px solid #004989;
+  border-right: 1px solid #004989;
+}
+.ddsmoothmenu ul li ul li a:hover{
+  background: #0058a5 !important;
+}
+.ddsmoothmenu ul li ul li a{
+  width: 250px;
+}

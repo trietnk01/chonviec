@@ -1,0 +1,15 @@
+User-agent: *
+        Disallow: /app/
+        Disallow: /bootstrap/
+        Disallow: /config/
+        Disallow: /database/
+        Disallow: /document/
+        Disallow: /public/
+        Disallow: /resources/
+        Disallow: /routes/
+        Disallow: /storage/
+        Disallow: /tests/
+        Disallow: /upload/
+        Disallow: /vendor/
+        Disallow: /.env
+        Sitemap: http://timviec.dienkim/sitemap.xml

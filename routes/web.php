@@ -1,0 +1,677 @@
+<?php
+Route::group(["prefix"=>"adminsystem","middleware"=>"TestLogin"],function(){	
+	Route::group(["prefix"=>"category-product"],function(){		
+		Route::match(["get","post"],"list",["as"=>"adminsystem.category-product.getList","uses"=>"adminsystem\CategoryProductController@getList"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.category-product.getForm","uses"=>"adminsystem\CategoryProductController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.category-product.save","uses"=>"adminsystem\CategoryProductController@save"]);
+		Route::get("delete-item/{id}",["as"=>"adminsystem.category-product.deleteItem","uses"=>"adminsystem\CategoryProductController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.category-product.sortOrder","uses"=>"adminsystem\CategoryProductController@sortOrder"]);
+		Route::post("update-status/{status}",["as"=>"adminsystem.category-product.updateStatus","uses"=>"adminsystem\CategoryProductController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.category-product.changeStatus","uses"=>"adminsystem\CategoryProductController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.category-product.trash","uses"=>"adminsystem\CategoryProductController@trash"]);		
+		Route::post("create-alias",["as"=>"adminsystem.category-product.createAlias","uses"=>"adminsystem\CategoryProductController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"banner"],function(){		
+		Route::match(["get","post"],"list/{category_id}",["as"=>"adminsystem.banner.getList","uses"=>"adminsystem\BannerController@getList"]);	
+		Route::post("load-data",["as"=>"adminsystem.banner.loadData","uses"=>"adminsystem\BannerController@loadData"]);		
+		Route::get("form/{task}/{category_id?}/{id?}",["as"=>"adminsystem.banner.getForm","uses"=>"adminsystem\BannerController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.banner.save","uses"=>"adminsystem\BannerController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.banner.deleteItem","uses"=>"adminsystem\BannerController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.banner.sortOrder","uses"=>"adminsystem\BannerController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.banner.updateStatus","uses"=>"adminsystem\BannerController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.banner.changeStatus","uses"=>"adminsystem\BannerController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.banner.trash","uses"=>"adminsystem\BannerController@trash"]);				
+	});	
+	Route::group(["prefix"=>"payment-method"],function(){		
+		Route::get("list",["as"=>"adminsystem.payment-method.getList","uses"=>"adminsystem\PaymentMethodController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.payment-method.loadData","uses"=>"adminsystem\PaymentMethodController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.payment-method.getForm","uses"=>"adminsystem\PaymentMethodController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.payment-method.save","uses"=>"adminsystem\PaymentMethodController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.payment-method.deleteItem","uses"=>"adminsystem\PaymentMethodController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.payment-method.sortOrder","uses"=>"adminsystem\PaymentMethodController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.payment-method.updateStatus","uses"=>"adminsystem\PaymentMethodController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.payment-method.changeStatus","uses"=>"adminsystem\PaymentMethodController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.payment-method.trash","uses"=>"adminsystem\PaymentMethodController@trash"]);				
+	});
+	Route::group(["prefix"=>"setting-system"],function(){		
+		Route::get("list",["as"=>"adminsystem.setting-system.getList","uses"=>"adminsystem\SettingSystemController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.setting-system.loadData","uses"=>"adminsystem\SettingSystemController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.setting-system.getForm","uses"=>"adminsystem\SettingSystemController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.setting-system.save","uses"=>"adminsystem\SettingSystemController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.setting-system.deleteItem","uses"=>"adminsystem\SettingSystemController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.setting-system.sortOrder","uses"=>"adminsystem\SettingSystemController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.setting-system.updateStatus","uses"=>"adminsystem\SettingSystemController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.setting-system.changeStatus","uses"=>"adminsystem\SettingSystemController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.setting-system.trash","uses"=>"adminsystem\SettingSystemController@trash"]);	
+		
+		Route::post("create-alias",["as"=>"adminsystem.setting-system.createAlias","uses"=>"adminsystem\SettingSystemController@createAlias"]);
+	});
+	Route::group(["prefix"=>"product"],function(){		
+		Route::get("list",["as"=>"adminsystem.product.getList","uses"=>"adminsystem\ProductController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.product.loadData","uses"=>"adminsystem\ProductController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.product.getForm","uses"=>"adminsystem\ProductController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.product.save","uses"=>"adminsystem\ProductController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.product.deleteItem","uses"=>"adminsystem\ProductController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.product.sortOrder","uses"=>"adminsystem\ProductController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.product.updateStatus","uses"=>"adminsystem\ProductController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.product.changeStatus","uses"=>"adminsystem\ProductController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.product.trash","uses"=>"adminsystem\ProductController@trash"]);
+		
+		Route::post("create-alias",["as"=>"adminsystem.product.createAlias","uses"=>"adminsystem\ProductController@createAlias"]);
+	});		
+	Route::group(["prefix"=>"privilege"],function(){		
+		Route::get("list",["as"=>"adminsystem.privilege.getList","uses"=>"adminsystem\PrivilegeController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.privilege.loadData","uses"=>"adminsystem\PrivilegeController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.privilege.getForm","uses"=>"adminsystem\PrivilegeController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.privilege.save","uses"=>"adminsystem\PrivilegeController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.privilege.deleteItem","uses"=>"adminsystem\PrivilegeController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.privilege.sortOrder","uses"=>"adminsystem\PrivilegeController@sortOrder"]);		
+		Route::post("trash",["as"=>"adminsystem.privilege.trash","uses"=>"adminsystem\PrivilegeController@trash"]);		
+	});	
+	Route::group(["prefix"=>"category-video"],function(){		
+		Route::get("list",["as"=>"adminsystem.category-video.getList","uses"=>"adminsystem\CategoryVideoController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.category-video.loadData","uses"=>"adminsystem\CategoryVideoController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.category-video.getForm","uses"=>"adminsystem\CategoryVideoController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.category-video.save","uses"=>"adminsystem\CategoryVideoController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.category-video.deleteItem","uses"=>"adminsystem\CategoryVideoController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.category-video.sortOrder","uses"=>"adminsystem\CategoryVideoController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.category-video.updateStatus","uses"=>"adminsystem\CategoryVideoController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.category-video.changeStatus","uses"=>"adminsystem\CategoryVideoController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.category-video.trash","uses"=>"adminsystem\CategoryVideoController@trash"]);
+		
+		Route::post("create-alias",["as"=>"adminsystem.category-video.createAlias","uses"=>"adminsystem\CategoryVideoController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"customer"],function(){		
+		Route::get("list",["as"=>"adminsystem.customer.getList","uses"=>"adminsystem\CustomerController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.customer.loadData","uses"=>"adminsystem\CustomerController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.customer.getForm","uses"=>"adminsystem\CustomerController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.customer.save","uses"=>"adminsystem\CustomerController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.customer.deleteItem","uses"=>"adminsystem\CustomerController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.customer.sortOrder","uses"=>"adminsystem\CustomerController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.customer.updateStatus","uses"=>"adminsystem\CustomerController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.customer.changeStatus","uses"=>"adminsystem\CustomerController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.customer.trash","uses"=>"adminsystem\CustomerController@trash"]);		
+	});
+	Route::group(["prefix"=>"invoice"],function(){		
+		Route::get("list",["as"=>"adminsystem.invoice.getList","uses"=>"adminsystem\InvoiceController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.invoice.loadData","uses"=>"adminsystem\InvoiceController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.invoice.getForm","uses"=>"adminsystem\InvoiceController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.invoice.save","uses"=>"adminsystem\InvoiceController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.invoice.deleteItem","uses"=>"adminsystem\InvoiceController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.invoice.sortOrder","uses"=>"adminsystem\InvoiceController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.invoice.updateStatus","uses"=>"adminsystem\InvoiceController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.invoice.changeStatus","uses"=>"adminsystem\InvoiceController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.invoice.trash","uses"=>"adminsystem\InvoiceController@trash"]);
+	});
+	Route::group(["prefix"=>"user"],function(){		
+		Route::get("list",["as"=>"adminsystem.user.getList","uses"=>"adminsystem\UserController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.user.loadData","uses"=>"adminsystem\UserController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.user.getForm","uses"=>"adminsystem\UserController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.user.save","uses"=>"adminsystem\UserController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.user.deleteItem","uses"=>"adminsystem\UserController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.user.sortOrder","uses"=>"adminsystem\UserController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.user.updateStatus","uses"=>"adminsystem\UserController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.user.changeStatus","uses"=>"adminsystem\UserController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.user.trash","uses"=>"adminsystem\UserController@trash"]);		
+		
+	});
+	Route::group(["prefix"=>"category-article"],function(){		
+		Route::match(["get","post"],"list",["as"=>"adminsystem.category-article.getList","uses"=>"adminsystem\CategoryArticleController@getList"]);	
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.category-article.getForm","uses"=>"adminsystem\CategoryArticleController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.category-article.save","uses"=>"adminsystem\CategoryArticleController@save"]);
+		Route::get("delete-item/{id}",["as"=>"adminsystem.category-article.deleteItem","uses"=>"adminsystem\CategoryArticleController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.category-article.sortOrder","uses"=>"adminsystem\CategoryArticleController@sortOrder"]);
+		Route::post("update-status/{status}",["as"=>"adminsystem.category-article.updateStatus","uses"=>"adminsystem\CategoryArticleController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.category-article.changeStatus","uses"=>"adminsystem\CategoryArticleController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.category-article.trash","uses"=>"adminsystem\CategoryArticleController@trash"]);
+		
+		Route::post("create-alias",["as"=>"adminsystem.category-article.createAlias","uses"=>"adminsystem\CategoryArticleController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"category-param"],function(){		
+		Route::match(["get","post"],"list",["as"=>"adminsystem.category-param.getList","uses"=>"adminsystem\CategoryParamController@getList"]);	
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.category-param.getForm","uses"=>"adminsystem\CategoryParamController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.category-param.save","uses"=>"adminsystem\CategoryParamController@save"]);
+		Route::get("delete-item/{id}",["as"=>"adminsystem.category-param.deleteItem","uses"=>"adminsystem\CategoryParamController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.category-param.sortOrder","uses"=>"adminsystem\CategoryParamController@sortOrder"]);
+		Route::post("update-status/{status}",["as"=>"adminsystem.category-param.updateStatus","uses"=>"adminsystem\CategoryParamController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.category-param.changeStatus","uses"=>"adminsystem\CategoryParamController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.category-param.trash","uses"=>"adminsystem\CategoryParamController@trash"]);		
+		Route::post("create-alias",["as"=>"adminsystem.category-param.createAlias","uses"=>"adminsystem\CategoryParamController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"category-banner"],function(){		
+		Route::get("list",["as"=>"adminsystem.category-banner.getList","uses"=>"adminsystem\CategoryBannerController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.category-banner.loadData","uses"=>"adminsystem\CategoryBannerController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.category-banner.getForm","uses"=>"adminsystem\CategoryBannerController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.category-banner.save","uses"=>"adminsystem\CategoryBannerController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.category-banner.deleteItem","uses"=>"adminsystem\CategoryBannerController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.category-banner.sortOrder","uses"=>"adminsystem\CategoryBannerController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.category-banner.updateStatus","uses"=>"adminsystem\CategoryBannerController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.category-banner.changeStatus","uses"=>"adminsystem\CategoryBannerController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.category-banner.trash","uses"=>"adminsystem\CategoryBannerController@trash"]);		
+	});		
+
+	Route::group(["prefix"=>"video"],function(){		
+		Route::get("list",["as"=>"adminsystem.video.getList","uses"=>"adminsystem\VideoController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.video.loadData","uses"=>"adminsystem\VideoController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.video.getForm","uses"=>"adminsystem\VideoController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.video.save","uses"=>"adminsystem\VideoController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.video.deleteItem","uses"=>"adminsystem\VideoController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.video.sortOrder","uses"=>"adminsystem\VideoController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.video.updateStatus","uses"=>"adminsystem\VideoController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.video.changeStatus","uses"=>"adminsystem\VideoController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.video.trash","uses"=>"adminsystem\VideoController@trash"]);
+		
+	});	
+	Route::group(["prefix"=>"article"],function(){		
+		Route::get("list",["as"=>"adminsystem.article.getList","uses"=>"adminsystem\ArticleController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.article.loadData","uses"=>"adminsystem\ArticleController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.article.getForm","uses"=>"adminsystem\ArticleController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.article.save","uses"=>"adminsystem\ArticleController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.article.deleteItem","uses"=>"adminsystem\ArticleController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.article.sortOrder","uses"=>"adminsystem\ArticleController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.article.updateStatus","uses"=>"adminsystem\ArticleController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.article.changeStatus","uses"=>"adminsystem\ArticleController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.article.trash","uses"=>"adminsystem\ArticleController@trash"]);
+		
+		Route::post("create-alias",["as"=>"adminsystem.article.createAlias","uses"=>"adminsystem\ArticleController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"photo"],function(){		
+		Route::get("list",["as"=>"adminsystem.photo.getList","uses"=>"adminsystem\PhotoController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.photo.loadData","uses"=>"adminsystem\PhotoController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.photo.getForm","uses"=>"adminsystem\PhotoController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.photo.save","uses"=>"adminsystem\PhotoController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.photo.deleteItem","uses"=>"adminsystem\PhotoController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.photo.sortOrder","uses"=>"adminsystem\PhotoController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.photo.updateStatus","uses"=>"adminsystem\PhotoController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.photo.changeStatus","uses"=>"adminsystem\PhotoController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.photo.trash","uses"=>"adminsystem\PhotoController@trash"]);		
+	});	
+	Route::group(["prefix"=>"organization"],function(){		
+		Route::get("list",["as"=>"adminsystem.organization.getList","uses"=>"adminsystem\OrganizationController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.organization.loadData","uses"=>"adminsystem\OrganizationController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.organization.getForm","uses"=>"adminsystem\OrganizationController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.organization.save","uses"=>"adminsystem\OrganizationController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.organization.deleteItem","uses"=>"adminsystem\OrganizationController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.organization.sortOrder","uses"=>"adminsystem\OrganizationController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.organization.updateStatus","uses"=>"adminsystem\OrganizationController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.organization.changeStatus","uses"=>"adminsystem\OrganizationController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.organization.trash","uses"=>"adminsystem\OrganizationController@trash"]);
+		
+		Route::post("create-alias",["as"=>"adminsystem.organization.createAlias","uses"=>"adminsystem\OrganizationController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"province"],function(){		
+		Route::get("list",["as"=>"adminsystem.province.getList","uses"=>"adminsystem\ProvinceController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.province.loadData","uses"=>"adminsystem\ProvinceController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.province.getForm","uses"=>"adminsystem\ProvinceController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.province.save","uses"=>"adminsystem\ProvinceController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.province.deleteItem","uses"=>"adminsystem\ProvinceController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.province.sortOrder","uses"=>"adminsystem\ProvinceController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.province.updateStatus","uses"=>"adminsystem\ProvinceController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.province.changeStatus","uses"=>"adminsystem\ProvinceController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.province.trash","uses"=>"adminsystem\ProvinceController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.province.createAlias","uses"=>"adminsystem\ProvinceController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"scale"],function(){		
+		Route::get("list",["as"=>"adminsystem.scale.getList","uses"=>"adminsystem\ScaleController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.scale.loadData","uses"=>"adminsystem\ScaleController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.scale.getForm","uses"=>"adminsystem\ScaleController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.scale.save","uses"=>"adminsystem\ScaleController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.scale.deleteItem","uses"=>"adminsystem\ScaleController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.scale.sortOrder","uses"=>"adminsystem\ScaleController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.scale.updateStatus","uses"=>"adminsystem\ScaleController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.scale.changeStatus","uses"=>"adminsystem\ScaleController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.scale.trash","uses"=>"adminsystem\ScaleController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.scale.createAlias","uses"=>"adminsystem\ScaleController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"work"],function(){		
+		Route::get("list",["as"=>"adminsystem.work.getList","uses"=>"adminsystem\WorkController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.work.loadData","uses"=>"adminsystem\WorkController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.work.getForm","uses"=>"adminsystem\WorkController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.work.save","uses"=>"adminsystem\WorkController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.work.deleteItem","uses"=>"adminsystem\WorkController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.work.sortOrder","uses"=>"adminsystem\WorkController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.work.updateStatus","uses"=>"adminsystem\WorkController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.work.changeStatus","uses"=>"adminsystem\WorkController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.work.trash","uses"=>"adminsystem\WorkController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.work.createAlias","uses"=>"adminsystem\WorkController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"literacy"],function(){		
+		Route::get("list",["as"=>"adminsystem.literacy.getList","uses"=>"adminsystem\LiteracyController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.literacy.loadData","uses"=>"adminsystem\LiteracyController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.literacy.getForm","uses"=>"adminsystem\LiteracyController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.literacy.save","uses"=>"adminsystem\LiteracyController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.literacy.deleteItem","uses"=>"adminsystem\LiteracyController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.literacy.sortOrder","uses"=>"adminsystem\LiteracyController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.literacy.updateStatus","uses"=>"adminsystem\LiteracyController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.literacy.changeStatus","uses"=>"adminsystem\LiteracyController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.literacy.trash","uses"=>"adminsystem\LiteracyController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.literacy.createAlias","uses"=>"adminsystem\LiteracyController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"salary"],function(){		
+		Route::get("list",["as"=>"adminsystem.salary.getList","uses"=>"adminsystem\SalaryController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.salary.loadData","uses"=>"adminsystem\SalaryController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.salary.getForm","uses"=>"adminsystem\SalaryController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.salary.save","uses"=>"adminsystem\SalaryController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.salary.deleteItem","uses"=>"adminsystem\SalaryController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.salary.sortOrder","uses"=>"adminsystem\SalaryController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.salary.updateStatus","uses"=>"adminsystem\SalaryController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.salary.changeStatus","uses"=>"adminsystem\SalaryController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.salary.trash","uses"=>"adminsystem\SalaryController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.salary.createAlias","uses"=>"adminsystem\SalaryController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"rank"],function(){		
+		Route::get("list",["as"=>"adminsystem.rank.getList","uses"=>"adminsystem\RankController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.rank.loadData","uses"=>"adminsystem\RankController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.rank.getForm","uses"=>"adminsystem\RankController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.rank.save","uses"=>"adminsystem\RankController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.rank.deleteItem","uses"=>"adminsystem\RankController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.rank.sortOrder","uses"=>"adminsystem\RankController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.rank.updateStatus","uses"=>"adminsystem\RankController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.rank.changeStatus","uses"=>"adminsystem\RankController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.rank.trash","uses"=>"adminsystem\RankController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.rank.createAlias","uses"=>"adminsystem\RankController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"recruitment"],function(){		
+		Route::get("list",["as"=>"adminsystem.recruitment.getList","uses"=>"adminsystem\RecruitmentController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.recruitment.loadData","uses"=>"adminsystem\RecruitmentController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.recruitment.getForm","uses"=>"adminsystem\RecruitmentController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.recruitment.save","uses"=>"adminsystem\RecruitmentController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.recruitment.deleteItem","uses"=>"adminsystem\RecruitmentController@deleteItem"]);								
+		Route::post("change-status",["as"=>"adminsystem.recruitment.changeStatus","uses"=>"adminsystem\RecruitmentController@changeStatus"]);
+		
+		Route::post("trash",["as"=>"adminsystem.recruitment.trash","uses"=>"adminsystem\RecruitmentController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.recruitment.createAlias","uses"=>"adminsystem\RecruitmentController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"job"],function(){		
+		Route::get("list",["as"=>"adminsystem.job.getList","uses"=>"adminsystem\JobController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.job.loadData","uses"=>"adminsystem\JobController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.job.getForm","uses"=>"adminsystem\JobController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.job.save","uses"=>"adminsystem\JobController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.job.deleteItem","uses"=>"adminsystem\JobController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.job.sortOrder","uses"=>"adminsystem\JobController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.job.updateStatus","uses"=>"adminsystem\JobController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.job.changeStatus","uses"=>"adminsystem\JobController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.job.trash","uses"=>"adminsystem\JobController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.job.createAlias","uses"=>"adminsystem\JobController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"probationary"],function(){		
+		Route::get("list",["as"=>"adminsystem.probationary.getList","uses"=>"adminsystem\ProbationaryController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.probationary.loadData","uses"=>"adminsystem\ProbationaryController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.probationary.getForm","uses"=>"adminsystem\ProbationaryController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.probationary.save","uses"=>"adminsystem\ProbationaryController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.probationary.deleteItem","uses"=>"adminsystem\ProbationaryController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.probationary.sortOrder","uses"=>"adminsystem\ProbationaryController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.probationary.updateStatus","uses"=>"adminsystem\ProbationaryController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.probationary.changeStatus","uses"=>"adminsystem\ProbationaryController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.probationary.trash","uses"=>"adminsystem\ProbationaryController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.probationary.createAlias","uses"=>"adminsystem\ProbationaryController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"working-form"],function(){		
+		Route::get("list",["as"=>"adminsystem.working-form.getList","uses"=>"adminsystem\WorkingFormController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.working-form.loadData","uses"=>"adminsystem\WorkingFormController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.working-form.getForm","uses"=>"adminsystem\WorkingFormController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.working-form.save","uses"=>"adminsystem\WorkingFormController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.working-form.deleteItem","uses"=>"adminsystem\WorkingFormController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.working-form.sortOrder","uses"=>"adminsystem\WorkingFormController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.working-form.updateStatus","uses"=>"adminsystem\WorkingFormController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.working-form.changeStatus","uses"=>"adminsystem\WorkingFormController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.working-form.trash","uses"=>"adminsystem\WorkingFormController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.working-form.createAlias","uses"=>"adminsystem\WorkingFormController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"experience"],function(){		
+		Route::get("list",["as"=>"adminsystem.experience.getList","uses"=>"adminsystem\ExperienceController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.experience.loadData","uses"=>"adminsystem\ExperienceController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.experience.getForm","uses"=>"adminsystem\ExperienceController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.experience.save","uses"=>"adminsystem\ExperienceController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.experience.deleteItem","uses"=>"adminsystem\ExperienceController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.experience.sortOrder","uses"=>"adminsystem\ExperienceController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.experience.updateStatus","uses"=>"adminsystem\ExperienceController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.experience.changeStatus","uses"=>"adminsystem\ExperienceController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.experience.trash","uses"=>"adminsystem\ExperienceController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.experience.createAlias","uses"=>"adminsystem\ExperienceController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"sex"],function(){		
+		Route::get("list",["as"=>"adminsystem.sex.getList","uses"=>"adminsystem\SexController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.sex.loadData","uses"=>"adminsystem\SexController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.sex.getForm","uses"=>"adminsystem\SexController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.sex.save","uses"=>"adminsystem\SexController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.sex.deleteItem","uses"=>"adminsystem\SexController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.sex.sortOrder","uses"=>"adminsystem\SexController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.sex.updateStatus","uses"=>"adminsystem\SexController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.sex.changeStatus","uses"=>"adminsystem\SexController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.sex.trash","uses"=>"adminsystem\SexController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.sex.createAlias","uses"=>"adminsystem\SexController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"profile-applied"],function(){		
+		Route::get("list",["as"=>"adminsystem.profile-applied.getList","uses"=>"adminsystem\ProfileAppliedController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.profile-applied.loadData","uses"=>"adminsystem\ProfileAppliedController@loadData"]);	
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.profile-applied.getForm","uses"=>"adminsystem\ProfileAppliedController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.profile-applied.save","uses"=>"adminsystem\ProfileAppliedController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.profile-applied.deleteItem","uses"=>"adminsystem\ProfileAppliedController@deleteItem"]);
+		Route::post("update-status",["as"=>"adminsystem.profile-applied.updateStatus","uses"=>"adminsystem\ProfileAppliedController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.profile-applied.changeStatus","uses"=>"adminsystem\ProfileAppliedController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.profile-applied.trash","uses"=>"adminsystem\ProfileAppliedController@trash"]);		
+	});	
+	Route::group(["prefix"=>"skill"],function(){		
+		Route::get("list",["as"=>"adminsystem.skill.getList","uses"=>"adminsystem\SkillController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.skill.loadData","uses"=>"adminsystem\SkillController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.skill.getForm","uses"=>"adminsystem\SkillController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.skill.save","uses"=>"adminsystem\SkillController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.skill.deleteItem","uses"=>"adminsystem\SkillController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.skill.sortOrder","uses"=>"adminsystem\SkillController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.skill.updateStatus","uses"=>"adminsystem\SkillController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.skill.changeStatus","uses"=>"adminsystem\SkillController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.skill.trash","uses"=>"adminsystem\SkillController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.skill.createAlias","uses"=>"adminsystem\SkillController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"classification"],function(){		
+		Route::get("list",["as"=>"adminsystem.classification.getList","uses"=>"adminsystem\ClassificationController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.classification.loadData","uses"=>"adminsystem\ClassificationController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.classification.getForm","uses"=>"adminsystem\ClassificationController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.classification.save","uses"=>"adminsystem\ClassificationController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.classification.deleteItem","uses"=>"adminsystem\ClassificationController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.classification.sortOrder","uses"=>"adminsystem\ClassificationController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.classification.updateStatus","uses"=>"adminsystem\ClassificationController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.classification.changeStatus","uses"=>"adminsystem\ClassificationController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.classification.trash","uses"=>"adminsystem\ClassificationController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.classification.createAlias","uses"=>"adminsystem\ClassificationController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"language-level"],function(){		
+		Route::get("list",["as"=>"adminsystem.language-level.getList","uses"=>"adminsystem\LanguageLevelController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.language-level.loadData","uses"=>"adminsystem\LanguageLevelController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.language-level.getForm","uses"=>"adminsystem\LanguageLevelController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.language-level.save","uses"=>"adminsystem\LanguageLevelController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.language-level.deleteItem","uses"=>"adminsystem\LanguageLevelController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.language-level.sortOrder","uses"=>"adminsystem\LanguageLevelController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.language-level.updateStatus","uses"=>"adminsystem\LanguageLevelController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.language-level.changeStatus","uses"=>"adminsystem\LanguageLevelController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.language-level.trash","uses"=>"adminsystem\LanguageLevelController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.language-level.createAlias","uses"=>"adminsystem\LanguageLevelController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"language"],function(){		
+		Route::get("list",["as"=>"adminsystem.language.getList","uses"=>"adminsystem\LanguageController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.language.loadData","uses"=>"adminsystem\LanguageController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.language.getForm","uses"=>"adminsystem\LanguageController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.language.save","uses"=>"adminsystem\LanguageController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.language.deleteItem","uses"=>"adminsystem\LanguageController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.language.sortOrder","uses"=>"adminsystem\LanguageController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.language.updateStatus","uses"=>"adminsystem\LanguageController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.language.changeStatus","uses"=>"adminsystem\LanguageController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.language.trash","uses"=>"adminsystem\LanguageController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.language.createAlias","uses"=>"adminsystem\LanguageController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"graduation"],function(){		
+		Route::get("list",["as"=>"adminsystem.graduation.getList","uses"=>"adminsystem\GraduationController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.graduation.loadData","uses"=>"adminsystem\GraduationController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.graduation.getForm","uses"=>"adminsystem\GraduationController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.graduation.save","uses"=>"adminsystem\GraduationController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.graduation.deleteItem","uses"=>"adminsystem\GraduationController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.graduation.sortOrder","uses"=>"adminsystem\GraduationController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.graduation.updateStatus","uses"=>"adminsystem\GraduationController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.graduation.changeStatus","uses"=>"adminsystem\GraduationController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.graduation.trash","uses"=>"adminsystem\GraduationController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.graduation.createAlias","uses"=>"adminsystem\GraduationController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"employer"],function(){		
+		Route::get("list",["as"=>"adminsystem.employer.getList","uses"=>"adminsystem\EmployerController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.employer.loadData","uses"=>"adminsystem\EmployerController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.employer.getForm","uses"=>"adminsystem\EmployerController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.employer.save","uses"=>"adminsystem\EmployerController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.employer.deleteItem","uses"=>"adminsystem\EmployerController@deleteItem"]);				
+		Route::post("update-status",["as"=>"adminsystem.employer.updateStatus","uses"=>"adminsystem\EmployerController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.employer.changeStatus","uses"=>"adminsystem\EmployerController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.employer.trash","uses"=>"adminsystem\EmployerController@trash"]);		
+	});	
+	Route::group(["prefix"=>"candidate"],function(){		
+		Route::get("list",["as"=>"adminsystem.candidate.getList","uses"=>"adminsystem\CandidateController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.candidate.loadData","uses"=>"adminsystem\CandidateController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.candidate.getForm","uses"=>"adminsystem\CandidateController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.candidate.save","uses"=>"adminsystem\CandidateController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.candidate.deleteItem","uses"=>"adminsystem\CandidateController@deleteItem"]);				
+		Route::post("update-status",["as"=>"adminsystem.candidate.updateStatus","uses"=>"adminsystem\CandidateController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.candidate.changeStatus","uses"=>"adminsystem\CandidateController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.candidate.trash","uses"=>"adminsystem\CandidateController@trash"]);		
+	});	
+	Route::group(["prefix"=>"marriage"],function(){		
+		Route::get("list",["as"=>"adminsystem.marriage.getList","uses"=>"adminsystem\MarriageController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.marriage.loadData","uses"=>"adminsystem\MarriageController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.marriage.getForm","uses"=>"adminsystem\MarriageController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.marriage.save","uses"=>"adminsystem\MarriageController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.marriage.deleteItem","uses"=>"adminsystem\MarriageController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.marriage.sortOrder","uses"=>"adminsystem\MarriageController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.marriage.updateStatus","uses"=>"adminsystem\MarriageController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.marriage.changeStatus","uses"=>"adminsystem\MarriageController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.marriage.trash","uses"=>"adminsystem\MarriageController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.marriage.createAlias","uses"=>"adminsystem\MarriageController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"district"],function(){		
+		Route::get("list",["as"=>"adminsystem.district.getList","uses"=>"adminsystem\DistrictController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.district.loadData","uses"=>"adminsystem\DistrictController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.district.getForm","uses"=>"adminsystem\DistrictController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.district.save","uses"=>"adminsystem\DistrictController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.district.deleteItem","uses"=>"adminsystem\DistrictController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.district.sortOrder","uses"=>"adminsystem\DistrictController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.district.updateStatus","uses"=>"adminsystem\DistrictController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.district.changeStatus","uses"=>"adminsystem\DistrictController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.district.trash","uses"=>"adminsystem\DistrictController@trash"]);
+		Route::post("create-alias",["as"=>"adminsystem.district.createAlias","uses"=>"adminsystem\DistrictController@createAlias"]);
+	});		
+	Route::group(["prefix"=>"project-article"],function(){		
+		Route::get("list",["as"=>"adminsystem.project-article.getList","uses"=>"adminsystem\ProjectArticleController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.project-article.loadData","uses"=>"adminsystem\ProjectArticleController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.project-article.getForm","uses"=>"adminsystem\ProjectArticleController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.project-article.save","uses"=>"adminsystem\ProjectArticleController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.project-article.deleteItem","uses"=>"adminsystem\ProjectArticleController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.project-article.sortOrder","uses"=>"adminsystem\ProjectArticleController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.project-article.updateStatus","uses"=>"adminsystem\ProjectArticleController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.project-article.changeStatus","uses"=>"adminsystem\ProjectArticleController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.project-article.trash","uses"=>"adminsystem\ProjectArticleController@trash"]);
+		
+		Route::post("create-alias",["as"=>"adminsystem.project-article.createAlias","uses"=>"adminsystem\ProjectArticleController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"project"],function(){		
+		Route::get("list",["as"=>"adminsystem.project.getList","uses"=>"adminsystem\ProjectController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.project.loadData","uses"=>"adminsystem\ProjectController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.project.getForm","uses"=>"adminsystem\ProjectController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.project.save","uses"=>"adminsystem\ProjectController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.project.deleteItem","uses"=>"adminsystem\ProjectController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.project.sortOrder","uses"=>"adminsystem\ProjectController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.project.updateStatus","uses"=>"adminsystem\ProjectController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.project.changeStatus","uses"=>"adminsystem\ProjectController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.project.trash","uses"=>"adminsystem\ProjectController@trash"]);
+		
+		Route::post("create-alias",["as"=>"adminsystem.project.createAlias","uses"=>"adminsystem\ProjectController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"album"],function(){		
+		Route::get("list",["as"=>"adminsystem.album.getList","uses"=>"adminsystem\AlbumController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.album.loadData","uses"=>"adminsystem\AlbumController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.album.getForm","uses"=>"adminsystem\AlbumController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.album.save","uses"=>"adminsystem\AlbumController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.album.deleteItem","uses"=>"adminsystem\AlbumController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.album.sortOrder","uses"=>"adminsystem\AlbumController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.album.updateStatus","uses"=>"adminsystem\AlbumController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.album.changeStatus","uses"=>"adminsystem\AlbumController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.album.trash","uses"=>"adminsystem\AlbumController@trash"]);
+		
+		Route::post("create-alias",["as"=>"adminsystem.album.createAlias","uses"=>"adminsystem\AlbumController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"supporter"],function(){		
+		Route::get("list",["as"=>"adminsystem.supporter.getList","uses"=>"adminsystem\SupporterController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.supporter.loadData","uses"=>"adminsystem\SupporterController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.supporter.getForm","uses"=>"adminsystem\SupporterController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.supporter.save","uses"=>"adminsystem\SupporterController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.supporter.deleteItem","uses"=>"adminsystem\SupporterController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.supporter.sortOrder","uses"=>"adminsystem\SupporterController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.supporter.updateStatus","uses"=>"adminsystem\SupporterController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.supporter.changeStatus","uses"=>"adminsystem\SupporterController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.supporter.trash","uses"=>"adminsystem\SupporterController@trash"]);		
+	});	
+	Route::group(["prefix"=>"page"],function(){		
+		Route::get("list",["as"=>"adminsystem.page.getList","uses"=>"adminsystem\PageController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.page.loadData","uses"=>"adminsystem\PageController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.page.getForm","uses"=>"adminsystem\PageController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.page.save","uses"=>"adminsystem\PageController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.page.deleteItem","uses"=>"adminsystem\PageController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.page.sortOrder","uses"=>"adminsystem\PageController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.page.updateStatus","uses"=>"adminsystem\PageController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.page.changeStatus","uses"=>"adminsystem\PageController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.page.trash","uses"=>"adminsystem\PageController@trash"]);
+		
+		Route::post("create-alias",["as"=>"adminsystem.page.createAlias","uses"=>"adminsystem\PageController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"menu"],function(){		
+		Route::match(["get","post"],"list/{menu_type_id}",["as"=>"adminsystem.menu.getList","uses"=>"adminsystem\MenuController@getList"]);	
+		Route::get("form/{task}/{menu_type_id?}/{id?}/{alias?}",["as"=>"adminsystem.menu.getForm","uses"=>"adminsystem\MenuController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.menu.save","uses"=>"adminsystem\MenuController@save"]);
+		Route::get("delete-item/{id}",["as"=>"adminsystem.menu.deleteItem","uses"=>"adminsystem\MenuController@deleteItem"]);		
+		Route::post("sort-order/{menu_type_id}",["as"=>"adminsystem.menu.sortOrder","uses"=>"adminsystem\MenuController@sortOrder"]);
+		Route::post("update-status/{status}/{menu_type_id}",["as"=>"adminsystem.menu.updateStatus","uses"=>"adminsystem\MenuController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.menu.changeStatus","uses"=>"adminsystem\MenuController@changeStatus"]);
+		Route::post("trash/{menu_type_id}",["as"=>"adminsystem.menu.trash","uses"=>"adminsystem\MenuController@trash"]);
+		
+		Route::get("component/{menu_type_id}",["as"=>"adminsystem.menu.getComponentForm","uses"=>"adminsystem\MenuController@getComponentForm"]);
+		Route::get("category-article-component/{menu_type_id}",["as"=>"adminsystem.menu.getCategoryArticleComponent","uses"=>"adminsystem\MenuController@getCategoryArticleComponent"]);
+		Route::get("category-product-component/{menu_type_id}",["as"=>"adminsystem.menu.getCategoryProductComponent","uses"=>"adminsystem\MenuController@getCategoryProductComponent"]);
+		Route::get("article-component/{menu_type_id}",["as"=>"adminsystem.menu.getArticleComponent","uses"=>"adminsystem\MenuController@getArticleComponent"]);
+		Route::post("article-list",["as"=>"adminsystem.menu.getArticleList","uses"=>"adminsystem\MenuController@getArticleList"]);		
+		Route::get("product-component/{menu_type_id}",["as"=>"adminsystem.menu.getProductComponent","uses"=>"adminsystem\MenuController@getProductComponent"]);
+		Route::post("product-list",["as"=>"adminsystem.menu.getProductList","uses"=>"adminsystem\MenuController@getProductList"]);
+		Route::get("page-component/{menu_type_id}",["as"=>"adminsystem.menu.getPageComponent","uses"=>"adminsystem\MenuController@getPageComponent"]);		
+		Route::post("page-list",["as"=>"adminsystem.menu.getPageList","uses"=>"adminsystem\MenuController@getPageList"]);
+		Route::post("create-alias",["as"=>"adminsystem.menu.createAlias","uses"=>"adminsystem\MenuController@createAlias"]);
+	});	
+	Route::group(["prefix"=>"profile"],function(){		
+		Route::match(["get","post"],"list",["as"=>"adminsystem.profile.getList","uses"=>"adminsystem\ProfileController@getList"]);	
+		Route::post("load-data",["as"=>"adminsystem.profile.loadData","uses"=>"adminsystem\ProfileController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.profile.getForm","uses"=>"adminsystem\ProfileController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.profile.save","uses"=>"adminsystem\ProfileController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.profile.deleteItem","uses"=>"adminsystem\ProfileController@deleteItem"]);				
+		Route::post("update-status",["as"=>"adminsystem.profile.updateStatus","uses"=>"adminsystem\ProfileController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.profile.changeStatus","uses"=>"adminsystem\ProfileController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.profile.trash","uses"=>"adminsystem\ProfileController@trash"]);		
+	});	
+	Route::group(["prefix"=>"group"],function(){		
+		Route::match(["get","post"],"list",["as"=>"adminsystem.group.getList","uses"=>"adminsystem\GroupController@getList"]);
+		Route::get("add",["as"=>"adminsystem.group.getAdd","uses"=>"adminsystem\GroupController@getAdd"]);
+		Route::post("add",["as"=>"adminsystem.group.postAdd","uses"=>"adminsystem\GroupController@postAdd"]);
+		Route::get("edit/{id}",["as"=>"adminsystem.group.getEdit","uses"=>"adminsystem\GroupController@getEdit"]);
+		Route::post("edit",["as"=>"adminsystem.group.postEdit","uses"=>"adminsystem\GroupController@postEdit"]);
+		Route::get("delete/{id}",["as"=>"adminsystem.group.getDelete","uses"=>"adminsystem\GroupController@getDelete"]);
+	});	
+	Route::group(["prefix"=>"menu-type"],function(){		
+		Route::get("list",["as"=>"adminsystem.menu-type.getList","uses"=>"adminsystem\MenuTypeController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.menu-type.loadData","uses"=>"adminsystem\MenuTypeController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.menu-type.getForm","uses"=>"adminsystem\MenuTypeController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.menu-type.save","uses"=>"adminsystem\MenuTypeController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.menu-type.deleteItem","uses"=>"adminsystem\MenuTypeController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.menu-type.sortOrder","uses"=>"adminsystem\MenuTypeController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.menu-type.updateStatus","uses"=>"adminsystem\MenuTypeController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.menu-type.changeStatus","uses"=>"adminsystem\MenuTypeController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.menu-type.trash","uses"=>"adminsystem\MenuTypeController@trash"]);		
+	});		
+	
+	Route::group(["prefix"=>"module-item"],function(){		
+		Route::get("list",["as"=>"adminsystem.module-item.getList","uses"=>"adminsystem\ModuleItemController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.module-item.loadData","uses"=>"adminsystem\ModuleItemController@loadData"]);		
+		Route::post("load-data-article",["as"=>"adminsystem.module-item.loadDataArticle","uses"=>"adminsystem\ModuleItemController@loadDataArticle"]);	
+		Route::post("load-data-product",["as"=>"adminsystem.module-item.loadDataProduct","uses"=>"adminsystem\ModuleItemController@loadDataProduct"]);
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.module-item.getForm","uses"=>"adminsystem\ModuleItemController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.module-item.save","uses"=>"adminsystem\ModuleItemController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.module-item.deleteItem","uses"=>"adminsystem\ModuleItemController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.module-item.sortOrder","uses"=>"adminsystem\ModuleItemController@sortOrder"]);
+		Route::post("update-status",["as"=>"adminsystem.module-item.updateStatus","uses"=>"adminsystem\ModuleItemController@updateStatus"]);
+		Route::post("change-status",["as"=>"adminsystem.module-item.changeStatus","uses"=>"adminsystem\ModuleItemController@changeStatus"]);
+		Route::post("trash",["as"=>"adminsystem.module-item.trash","uses"=>"adminsystem\ModuleItemController@trash"]);		
+		Route::post("insert-article",["as"=>"adminsystem.module-item.insertArticle","uses"=>"adminsystem\ModuleItemController@insertArticle"]);	
+		Route::post("insert-product",["as"=>"adminsystem.module-item.insertProduct","uses"=>"adminsystem\ModuleItemController@insertProduct"]);			
+		Route::post("sort-items",["as"=>"adminsystem.module-item.sortItems","uses"=>"adminsystem\ModuleItemController@sortItems"]);		
+		Route::post("get-items",["as"=>"adminsystem.module-item.getItems","uses"=>"adminsystem\ModuleItemController@getItems"]);				
+	});
+	Route::group(["prefix"=>"media"],function(){		
+		Route::get("list",["as"=>"adminsystem.media.getList","uses"=>"adminsystem\MediaController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.media.loadData","uses"=>"adminsystem\MediaController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.media.getForm","uses"=>"adminsystem\MediaController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.media.save","uses"=>"adminsystem\MediaController@save"]);
+		Route::post("saveSummerFile",["as"=>"adminsystem.media.saveSummerFile","uses"=>"adminsystem\MediaController@saveSummerFile"]);
+		Route::post("delete-item",["as"=>"adminsystem.media.deleteItem","uses"=>"adminsystem\MediaController@deleteItem"]);				
+		Route::post("trash",["as"=>"adminsystem.media.trash","uses"=>"adminsystem\MediaController@trash"]);		
+		
+	});			
+	Route::group(["prefix"=>"group-member"],function(){		
+		Route::get("list",["as"=>"adminsystem.group-member.getList","uses"=>"adminsystem\GroupMemberController@getList"]);
+		Route::post("load-data",["as"=>"adminsystem.group-member.loadData","uses"=>"adminsystem\GroupMemberController@loadData"]);		
+		Route::get("form/{task}/{id?}",["as"=>"adminsystem.group-member.getForm","uses"=>"adminsystem\GroupMemberController@getForm"]);
+		Route::post("save",["as"=>"adminsystem.group-member.save","uses"=>"adminsystem\GroupMemberController@save"]);
+		Route::post("delete-item",["as"=>"adminsystem.group-member.deleteItem","uses"=>"adminsystem\GroupMemberController@deleteItem"]);		
+		Route::post("sort-order",["as"=>"adminsystem.group-member.sortOrder","uses"=>"adminsystem\GroupMemberController@sortOrder"]);		
+		Route::post("trash",["as"=>"adminsystem.group-member.trash","uses"=>"adminsystem\GroupMemberController@trash"]);	
+		Route::post("create-alias",["as"=>"adminsystem.group-member.createAlias","uses"=>"adminsystem\GroupMemberController@createAlias"]);	
+	});	
+	Route::group(["prefix"=>"dashboard"],function(){		
+		Route::get("form",["as"=>"adminsystem.dashboard.getForm","uses"=>"adminsystem\DashboardController@getForm"]);		
+	});	
+});
+Route::get('clear-cache', function() {
+    $command = Artisan::call('config:cache');
+	return 'Success';
+});
+Route::match(["get","post"],"adminsystem/login",["as"=>"adminsystem.login","uses"=>"adminsystem\LoginController@login"]);
+Route::post("adminsystem/logout",["as"=>"adminsystem.logout","uses"=>"adminsystem\LoginController@logout"]);
+Route::match(["get","post"],"/",["as"=>"frontend.index.getHome","uses"=>"frontend\IndexController@getHome"]);
+Route::match(["get","post"],"{alias}.html",["as"=>"frontend.index.index","uses"=>"frontend\IndexController@index"]);
+Route::match(["get","post"],"dang-ky-ntd",["as"=>"frontend.index.employerRegister","uses"=>"frontend\IndexController@registerEmployer"]);
+Route::match(["get","post"],"dang-ky-ung-vien",["as"=>"frontend.index.candidateRegister","uses"=>"frontend\IndexController@registerCandidate"]);
+Route::match(["get","post"],"dang-nhap-ntd",["as"=>"frontend.index.employerLogin","uses"=>"frontend\IndexController@loginEmployer"]);
+Route::match(["get","post"],"dang-nhap-ung-vien",["as"=>"frontend.index.candidateLogin","uses"=>"frontend\IndexController@loginCandidate"]);
+Route::post("login-apply",["as"=>"frontend.index.loginApply","uses"=>"frontend\IndexController@loginApply"]);
+Route::post("dang-nhap-luu-ho-so",["as"=>"frontend.index.loginSavedRecruitment","uses"=>"frontend\IndexController@loginSavedRecruitment"]);
+Route::post("nop-ho-so",["as"=>"frontend.index.apply","uses"=>"frontend\IndexController@apply"]);
+Route::match(["get","post"],"cach-thuc-nop-ho-so/{id}",["as"=>"frontend.index.getFormApplied","uses"=>"frontend\IndexController@getFormApplied"]);
+Route::match(["get","post"],"tk-ntd",["as"=>"frontend.index.viewEmployerAccount","uses"=>"frontend\IndexController@viewEmployerAccount"]);
+Route::match(["get","post"],"tk-ungvien",["as"=>"frontend.index.viewCandidateAccount","uses"=>"frontend\IndexController@viewCandidateAccount"]);
+Route::get("dang-xuat-ntd",["as"=>"frontend.index.logoutEmployer","uses"=>"frontend\IndexController@logoutEmployer"]);
+Route::get("dang-xuat-ungvien",["as"=>"frontend.index.logoutCandidate","uses"=>"frontend\IndexController@logoutCandidate"]);
+Route::match(["get","post"],"doi-mat-khau-ntd",["as"=>"frontend.index.viewEmployerSecurity","uses"=>"frontend\IndexController@viewEmployerSecurity"]);
+Route::match(["get","post"],"doi-mat-khau-ungvien",["as"=>"frontend.index.viewCandidateSecurity","uses"=>"frontend\IndexController@viewCandidateSecurity"]);
+Route::match(["get","post"],"dang-tin-tuyen-dung/{task}/{id}",["as"=>"frontend.index.getFormRecruitment","uses"=>"frontend\IndexController@getFormRecruitment"]);
+Route::match(["get","post"],"quan-ly-tin-tuyen-dung",["as"=>"frontend.index.manageRecruitment","uses"=>"frontend\IndexController@manageRecruitment"]);
+Route::get("xoa-tin-tuyen-dung/{id}",["as"=>"frontend.index.deleteRecruitment","uses"=>"frontend\IndexController@deleteRecruitment"]);
+Route::post("an-hien-tin-tuyen-dung",["as"=>"frontend.index.changeRecruitmentAppearedStatus","uses"=>"frontend\IndexController@changeRecruitmentAppearedStatus"]);
+Route::match(["get","post"],"ho-so/{task}/{id}",["as"=>"frontend.index.getFormProfile","uses"=>"frontend\IndexController@getFormProfile"]);
+Route::match(["get","post"],"tu-ho-so",["as"=>"frontend.index.viewProfileCabinet","uses"=>"frontend\IndexController@viewProfileCabinet"]);
+Route::get("xoa-ho-so/{id}",["as"=>"frontend.index.deleteProfile","uses"=>"frontend\IndexController@deleteProfile"]);
+Route::post("cho-phep-tim-kiem-ho-so",["as"=>"frontend.index.changeProfileSearchStatus","uses"=>"frontend\IndexController@changeProfileSearchStatus"]);
+Route::get("bo-ho-so/{id}",["as"=>"frontend.index.getGroupProfile","uses"=>"frontend\IndexController@getGroupProfile"]);
+Route::post("save-file-attached",["as"=>"frontend.index.saveFileAttached","uses"=>"frontend\IndexController@saveFileAttached"]);
+Route::post("save-file-applied",["as"=>"frontend.index.saveFileApplied","uses"=>"frontend\IndexController@saveFileApplied"]);
+Route::match(["get","post"],"chi-tiet-ho-so/{id?}",["as"=>"frontend.index.getProfileDetail","uses"=>"frontend\IndexController@getProfileDetail"]);
+Route::post("cap-nhat-muc-tieu-nghe-nghiep",["as"=>"frontend.index.updateCareerGoal","uses"=>"frontend\IndexController@updateCareerGoal"]);
+Route::post("cap-nhat-kn-lam-viec",["as"=>"frontend.index.saveExperienceJob","uses"=>"frontend\IndexController@saveExperienceJob"]);
+Route::post("xoa-kn-lam-viec",["as"=>"frontend.index.deleteExperienceJob","uses"=>"frontend\IndexController@deleteExperienceJob"]);
+Route::post("cap-nhat-td-bang-cap",["as"=>"frontend.index.saveGraduation","uses"=>"frontend\IndexController@saveGraduation"]);
+Route::post("xoa-td-bang-cap",["as"=>"frontend.index.deleteGraduation","uses"=>"frontend\IndexController@deleteGraduation"]);
+Route::post("cap-nhat-td-ngoai-ngu",["as"=>"frontend.index.saveLanguage","uses"=>"frontend\IndexController@saveLanguage"]);
+Route::post("xoa-td-ngoai-ngu",["as"=>"frontend.index.deleteLanguage","uses"=>"frontend\IndexController@deleteLanguage"]);
+Route::post("cap-nhat-tin-hoc-vp",["as"=>"frontend.index.saveOffice","uses"=>"frontend\IndexController@saveOffice"]);
+Route::post("cap-nhat-ky-nang-so-truong",["as"=>"frontend.index.saveSkill","uses"=>"frontend\IndexController@saveSkill"]);
+Route::get("xac-thuc-tai-khoan-ntd/{id}/{certification_code}",["as"=>"frontend.index.certificateEmployer","uses"=>"frontend\IndexController@certificateEmployer"]);
+Route::get("xac-thuc-tai-khoan-ung-vien/{id}/{certification_code}",["as"=>"frontend.index.certificateCandidate","uses"=>"frontend\IndexController@certificateCandidate"]);
+Route::match(["get","post"],"lay-mat-khau-ntd",["as"=>"frontend.index.resetPassWrdEmployer","uses"=>"frontend\IndexController@resetPassWrdEmployer"]);
+Route::match(["get","post"],"lay-mat-khau-ung-vien",["as"=>"frontend.index.resetPassWrdCandidate","uses"=>"frontend\IndexController@resetPassWrdCandidate"]);
+Route::match(["get","post"],"tim-viec",["as"=>"frontend.index.searchRecruitment","uses"=>"frontend\IndexController@searchRecruitment"]);
+Route::match(["get","post"],"ho-so-ung-vien-nop-vao",["as"=>"frontend.index.viewAppliedProfile","uses"=>"frontend\IndexController@viewAppliedProfile"]);
+Route::match(["get","post"],"viec-lam-da-luu",["as"=>"frontend.index.viewSavedRecruitment","uses"=>"frontend\IndexController@viewSavedRecruitment"]);
+Route::match(["get","post"],"chi-tiet-ho-so-ung-vien/{id}/{save_id}",["as"=>"frontend.index.getAppliedProfileDetail","uses"=>"frontend\IndexController@getAppliedProfileDetail"]);
+Route::match(["get","post"],"ho-so-da-luu",["as"=>"frontend.index.viewSavedProfile","uses"=>"frontend\IndexController@viewSavedProfile"]);
+Route::match(["get","post"],"viec-lam-da-ung-tuyen",["as"=>"frontend.index.viewAppliedRecruitment","uses"=>"frontend\IndexController@viewAppliedRecruitment"]);
+Route::get("tim-kiem-ho-so",["as"=>"frontend.index.getFormSearchProfile","uses"=>"frontend\IndexController@getFormSearchProfile"]);
+Route::match(["get","post"],"ket-qua-tim-kiem",["as"=>"frontend.index.searchingProfile","uses"=>"frontend\IndexController@searchingProfile"]);
+Route::get("xoa-ho-so-da-luu/{id}",["as"=>"frontend.index.deleteSavedProfile","uses"=>"frontend\IndexController@deleteSavedProfile"]);
+Route::get("xoa-viec-lam-da-luu/{id}",["as"=>"frontend.index.deleteSavedRecruitment","uses"=>"frontend\IndexController@deleteSavedRecruitment"]);
+Route::post("luu-ho-so-truc-tiep",["as"=>"frontend.index.saveQuicklyRecruitment","uses"=>"frontend\IndexController@saveQuicklyRecruitment"]);
+Route::get("hoan-tat-dang-ky",["as"=>"frontend.index.finishedRegister","uses"=>"frontend\IndexController@finishedRegister"]);
+Route::get("dang-ky",["as"=>"frontend.index.register","uses"=>"frontend\IndexController@register"]);
+Route::get("dang-nhap",["as"=>"frontend.index.loginFe","uses"=>"frontend\IndexController@loginFe"]);
+Route::match(["get","post"],"tim-kiem",["as"=>"frontend.index.search","uses"=>"frontend\IndexController@search"]);
+
+?>

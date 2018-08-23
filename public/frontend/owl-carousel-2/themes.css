@@ -1,0 +1,52 @@
+.building-construction .owl-nav {
+    position: absolute;
+    bottom:-82px;
+    text-align: center;
+    width: 85px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: #fff;
+}
+.building-construction  .owl-nav .owl-prev {
+    position: absolute;
+    left: 0;
+    border: 1px solid #114a82;
+    border-radius: 50%;
+    padding: 3px;
+    text-align: center;
+}
+.building-construction .owl-nav .owl-next {
+    position: absolute;
+    right: 0;
+    border: 1px solid #114a82;
+    border-radius: 50%;
+    padding: 3px;
+    text-align: center;
+}
+.building-construction .owl-nav .fa {
+    color: #fff;
+    background: #114a82;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 50%;
+    text-align: center;
+}
+.building-construction .owl-dots {
+    width: 1185px;
+    margin: 0 auto;
+    position: absolute;
+    margin-top: -85px;
+    left: 0;
+    right: 0;
+}
+.building-construction [class^="dotnumber"],.building-construction [class*=" dotnumber"] {
+    float: left;
+    margin: 0 15px;
+    width: 30.8%;
+    border: 3px solid #fff;
+}
+.building-construction .owl-dots .active {
+    border: 3px solid #114a82;
+}
