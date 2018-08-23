@@ -18,6 +18,9 @@ body{
 a:hover,a:focus{
     text-decoration: none;
 }
+a{
+    color: #23c0e9;
+}
 table{max-width:100%;}
 p{margin:1em 0;}
 img{max-width:100%;}
@@ -265,14 +268,13 @@ figure:hover img{-webkit-transform:scale3d(1.2, 1.2, 1);transform:scale3d(1.2, 1
     padding: 20px 0px;
     font-size: 20px;
     font-weight: bold;    
-    background: #f5f5f5;
-    border: 1px solid #ccc;
+    background: #ffffff;   
     transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;    
+    box-shadow:1px 1px 1px 0px #0000001f;
 }
 .dk-dn a:hover{
-    background: #337ab7;
-    border: 1px solid #1b588d;
+    background:#23c0e9;    
     color: #ffffff;    
 }
 .tao-ho-so a{
@@ -280,17 +282,17 @@ figure:hover img{-webkit-transform:scale3d(1.2, 1.2, 1);transform:scale3d(1.2, 1
     padding-left: 10px ;
     padding-top: 10px;   
     padding-bottom: 11px;     
-    background: #f5f5f5;
-    border: 1px solid #ccc;
+    background: #ffffff;       
     transition: all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;    
+    box-shadow:1px 1px 1px 0px #0000001f;
 }
 .tao-ho-so a:hover{
-    background:#23C0E9;
-    border: 1px solid #15aed6;    
+    background:#23c0e9;    
+     color: #ffffff; 
 }
 .tao-ho-so a .ths{
-    color: #23C0E9;
+    color: #23c0e9;
     font-weight: bold;
     font-size: 25px;
     transition: all 0.5s ease-in-out;
